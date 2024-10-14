@@ -1,0 +1,24 @@
+Nam Nhật: Viết báo cáo theo yêu cầu trên course
+Mục 1: Giới thiệu
+
+Giới thiệu mục tiêu cụ thể của đồ án, bài toán máy học, ứng dụng.
+
+Mục 2: Dữ liệu
+
+Trình bày phương pháp tự xây dựng tập dữ liệu có nhãn hoặc giới thiệu về tập dữ liệu có sẵn, phân tích sơ bộ tập dữ liệu.
+
+Mục 3: Phương pháp máy học
+
+Trình bày tóm tắt các phương pháp máy học, cải tiến (nếu có), công cụ sử dụng, các giá trị tham số của phương pháp svm
+
+Duy Thịnh:
+
+Trình bày tóm tắt các phương pháp máy học, cải tiến (nếu có), công cụ sử dụng, các giá trị tham số của phương pháp randomforest, và xgboost
+
+Trình bày các độ đo sử dụng để đánh giá.
+
+Mục 6: Kết luận
+
+Thanh Lâm:
+Làm slide
+Mục 4, 5, 7

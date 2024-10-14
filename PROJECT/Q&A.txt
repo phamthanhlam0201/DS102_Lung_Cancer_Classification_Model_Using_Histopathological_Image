@@ -1,0 +1,49 @@
+1. Lý do nào khiến các bạn chọn sử dụng hình ảnh mô bệnh học để phân loại ung thư phổi thay vì các phương pháp khác?
+Hình ảnh mô bệnh học cung cấp thông tin tế bào chi tiết rất quan trọng để chẩn đoán chính xác ung thư phổi. Việc sử dụng hình ảnh này kết hợp với kỹ thuật học máy giúp tự động phân tích và phân loại, nâng cao độ chính xác và độ tin cậy trong chẩn đoán.
+
+2. Quá trình tiền xử lý dữ liệu hình ảnh mô bệnh học được thực hiện như thế nào?
+Dữ liệu hình ảnh được chuẩn hoá bằng cách chia các giá trị pixel cho 255 để đưa về khoảng từ 0 đến 1. Sử dụng GLCM để trích xuất các đặc trưng như độ tương phản, năng lượng, tính đồng nhất, sự tương quan và entropy từ ảnh, giúp cải thiện độ chính xác và hiệu suất của quá trình phân loại.
+
+3. Trong ba loại mô phổi (ung thư biểu mô tuyến phổi, ung thư biểu mô tế bào vảy phổi, và mô lành tính phổi), loại nào dễ bị nhầm lẫn nhất và tại sao?
+Ung thư biểu mô tuyến phổi và ung thư biểu mô tế bào vảy phổi dễ bị nhầm lẫn nhất do các đặc trưng GLCM của hai loại này có sự trùng lặp và tương đồng lớn, khiến việc phân biệt trở nên khó khăn.
+
+4. Vì sao nhóm chọn sử dụng các phương pháp máy học như SVM, Random Forest, và XGBoost cho dự án này?
+Các phương pháp này được chọn vì chúng là những phương pháp mạnh mẽ trong việc phân loại dữ liệu, có khả năng xử lý dữ liệu lớn và phức tạp. SVM tốt trong việc tìm siêu phẳng phân tách dữ liệu, Random Forest giúp giảm thiểu overfitting, và XGBoost tối ưu hóa hiệu suất và giảm thời gian huấn luyện.
+
+5. Kết quả thử nghiệm cho thấy phương pháp nào đạt độ chính xác cao nhất?
+Phương pháp XGBoost đạt độ chính xác cao nhất với độ chính xác kiểm tra chéo trung bình khoảng 0.9368 và trên tập kiểm tra là xấp xỉ 0.9467.
+
+6. Các bạn đã sử dụng những tiêu chí nào để đánh giá hiệu suất của các mô hình học máy?
+Các tiêu chí đánh giá bao gồm độ chính xác (Accuracy), hàm mất mát (Loss Function), và F1 Score, trong đó F1 Score kết hợp giữa độ chính xác (Precision) và độ nhạy (Recall).
+
+7. Phương pháp SVM có những hạn chế gì khi phân loại hình ảnh mô bệnh học phổi?
+SVM gặp khó khăn trong việc phân loại khi các đặc trưng của dữ liệu có sự trùng lặp và tương đồng lớn, khiến việc tìm siêu phẳng phân tách chính xác trở nên khó khăn và dẫn đến dự đoán nhầm lẫn.
+
+8. Nhóm đã sử dụng những kỹ thuật nào để tăng cường dữ liệu và tại sao những kỹ thuật này quan trọng?
+Nhóm sử dụng các kỹ thuật tăng cường dữ liệu như xoay, lật, dịch chuyển, thay đổi độ sáng và thêm nhiễu để tạo ra nhiều mẫu huấn luyện hơn, giúp cải thiện tính tổng quát của mô hình và đảm bảo đa dạng cho tập dữ liệu.
+
+9. Có những khó khăn gì trong quá trình thu thập và xử lý dữ liệu hình ảnh mô bệnh học?
+Khó khăn bao gồm việc thu thập hình ảnh từ các nguồn đã xác thực và tuân thủ quy định HIPAA, cũng như việc tăng cường và chuẩn hoá dữ liệu để đảm bảo độ chính xác và hiệu suất của mô hình.
+
+10. Những hướng phát triển tương lai nào được đề xuất để cải thiện hiệu quả của mô hình phân loại ung thư phổi?
+Nhóm đề xuất tăng cường dữ liệu, khai thác và chọn lọc đặc trưng mới, sử dụng các mô hình tiên tiến như CNN và áp dụng kỹ thuật học sâu (Deep Learning), kết hợp nhiều mô hình (Ensemble Learning), và triển khai mô hình vào môi trường thực tế để sử dụng trong ứng dụng phân loại hình ảnh.
+
+
+
+Kỹ thuật GLCM (Gray-Level Co-occurrence Matrix) là một phương pháp phân tích kết cấu trong hình ảnh. GLCM biểu diễn cách các cặp điểm ảnh với các mức xám cụ thể xuất hiện trong một mối quan hệ không gian nhất định. Kỹ thuật này giúp trích xuất các đặc trưng về kết cấu từ hình ảnh để phục vụ cho các bài toán như nhận dạng, phân loại hình ảnh, và phân tích y tế.
+
+Các bước cơ bản của kỹ thuật GLCM:
+Chuyển đổi hình ảnh sang mức xám: Hình ảnh ban đầu (thường là ảnh màu) được chuyển đổi sang ảnh mức xám.
+Xây dựng ma trận GLCM: Đối với mỗi cặp điểm ảnh có giá trị mức xám cụ thể, ta xác định số lần chúng xuất hiện cạnh nhau theo một hướng nhất định (ví dụ: ngang, dọc, chéo). Ma trận GLCM là ma trận vuông, trong đó mỗi phần tử đại diện cho tần suất của một cặp giá trị mức xám.
+Tính toán các đặc trưng từ ma trận GLCM: Từ ma trận này, ta có thể tính toán các đặc trưng như độ tương phản, sự đồng nhất, độ khác biệt, và mức độ tương quan. Những đặc trưng này mô tả các tính chất kết cấu của hình ảnh.
+
+Ý nghĩa của Entropy:
+Entropy cao: Chỉ ra rằng hình ảnh có nhiều thông tin và phức tạp, với mức độ ngẫu nhiên cao trong kết cấu.
+Entropy thấp: Chỉ ra rằng hình ảnh có ít thông tin, đồng nhất hơn và ít ngẫu nhiên.
+Tóm tắt các đặc trưng của GLCM:
+Contrast (Độ tương phản): Đo lường mức độ tương phản giữa các mức xám.
+Correlation (Mức độ tương quan): Đo lường mức độ tương quan giữa các điểm ảnh.
+Energy (Năng lượng): Đo lường mức độ đồng nhất của ma trận.
+Homogeneity (Sự đồng nhất): Đo lường mức độ tương tự của các giá trị mức xám.
+Entropy (Độ bất định): Đo lường mức độ phức tạp và ngẫu nhiên của kết cấu.
+Các đặc trưng này cung cấp những thông tin quan trọng về kết cấu của hình ảnh, giúp ích rất nhiều trong các bài toán phân tích và nhận dạng hình ảnh.
